@@ -462,12 +462,12 @@ class Pinterest:
             return []
 
         terms = query.split(' ')
-        query = "%20".join(terms)
+        queryURI = "%20".join(terms)
         term_meta_arr = []
         for t in terms:
             term_meta_arr.append('term_meta[]=' + t)
         term_arg = "%7Ctyped&".join(term_meta_arr)
-        source_url = '/search/{}/?q={}&rs=typed&{}%7Ctyped'.format(scope, query, term_arg)
+        source_url = '/search/{}/?q={}&rs=typed&{}%7Ctyped'.format(scope, queryURI, term_arg)
         options = {
             "isPrefetch": False,
             "auto_correction_disabled": False,
